@@ -1,7 +1,10 @@
 spring.application.name: /com/ofg/twitter-places-analyzer
+ribbon.zookeeper.enabled: true
 zookeeper:
   enabled: true
-  discovery.root: pl
+  discovery:
+    root: pl
+    enabled: true
   prefix: /com/ofg/
   dependencies:
     collerator:
