@@ -1,11 +1,10 @@
 spring.application.name: /com/ofg/twitter-places-analyzer
-ribbon.zookeeper.enabled: true
-zookeeper:
-  enabled: true
+spring.cloud.zookeeper.discovery:
   discovery:
     root: pl
     enabled: true
-  prefix: /com/ofg/
+spring.cloud.zookeeper:
+  prefix: com/ofg/
   dependencies:
     collerator:
       path: twitter-places-collerator
