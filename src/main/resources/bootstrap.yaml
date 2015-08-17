@@ -1,5 +1,5 @@
-zookeeper.enabled: false
-zookeeper.discovery.enabled: false
+spring.cloud.zookeeper.enabled: false
+spring.cloud.zookeeper.discovery.enabled: false
 ribbon.zookeeper.enabled: false
 
 graphite.host: localhost
