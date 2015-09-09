@@ -43,7 +43,7 @@ configurations {
                 // To prevent an accidental usage of groovy-all.jar and groovy.jar in different versions
                 // all modularized Groovy jars are replaced with groovy-all.jar by default.
                 if (details.requested.group == 'org.codehaus.groovy' && details.requested.name != "groovy-all") {
-                    details.useTarget("org.codehaus.groovy:groovy-all:${details.requested.version}")
+                    details.useTarget("org.codehaus.groovy:groovy-all:$groovyVersion")
                 }
             }
         }
@@ -64,7 +64,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.springframework:spring-context-support"
-    compile "org.codehaus.groovy:groovy-all:2.4.4"
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
     compile 'com.fasterxml.jackson.core:jackson-databind'
     compile 'com.google.guava:guava:18.0'
     compile 'org.apache.commons:commons-lang3:3.4'
