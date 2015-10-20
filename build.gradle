@@ -110,7 +110,7 @@ task bootRunDev(type: org.springframework.boot.gradle.run.BootRunTask) {
 		classpath = sourceSets.main.runtimeClasspath
 		systemProperty 'APP_ENV', 'dev'
 		systemProperty 'CONFIG_FOLDER', 'properties'
-		systemProperty 'spring.profiles.active', 'dev'
+		systemProperty 'spring.profiles.active', 'dev,springCloud'
 	}
 }
 
