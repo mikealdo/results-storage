@@ -3,7 +3,6 @@ spring.cloud.zookeeper.discovery.enabled: true
 ribbon.zookeeper.enabled: true
 spring.autoconfigure.exclude: ''
 
-spring.application.name: /com/ofg/twitter-places-analyzer
 spring.cloud.zookeeper.discovery.root: /pl
 spring.cloud.zookeeper:
   prefix: com/ofg/

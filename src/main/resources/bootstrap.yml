@@ -5,6 +5,10 @@ spring.autoconfigure.exclude: org.springframework.cloud.client.loadbalancer.Load
 
 graphite.host: localhost
 
+spring:
+  application:
+    name: twitter-places-analyzer
+
 stubrunner:
   use-microservice-definitions: true
   stubs:
