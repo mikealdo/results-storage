@@ -6,12 +6,8 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MvcResult
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*
 import static com.jayway.awaitility.Awaitility.await
 import static com.ofg.infrastructure.base.dsl.Matchers.equalsReferenceJson
-import static com.ofg.infrastructure.base.dsl.WireMockHttpRequestMapper.wireMockGet
-import static com.ofg.infrastructure.correlationid.CorrelationIdHolder.CORRELATION_ID_HEADER
-import static com.ofg.twitter.place.extractor.WeatherApiResponses.CITY_FOUND
 import static com.ofg.twitter.tweets.Tweets.TWEET_WITH_COORDINATES
 import static com.ofg.twitter.tweets.Tweets.TWEET_WITH_PLACE
 import static java.util.concurrent.TimeUnit.SECONDS
@@ -67,7 +63,6 @@ abstract class AbstractAcceptanceSpec extends MicroserviceMvcWiremockSpec {
     def "should find a place by verifying tweet's coordinates"() {
         given: 'a tweet with a coordinates section filled in'
             String tweet = TWEET_WITH_COORDINATES
-            stubInteraction(wireMockGet('/?lat=-75.14310264&lon=40.05701649'), aResponse().withBody(CITY_FOUND))
         when: 'trying to retrieve place from the tweet'
             MvcResult mvcResult = mockMvc.perform(put("$ROOT_PATH/$PAIR_ID").
                     contentType(TWITTER_PLACES_ANALYZER_MICROSERVICE_V1).
@@ -96,8 +91,6 @@ abstract class AbstractAcceptanceSpec extends MicroserviceMvcWiremockSpec {
                                                                                     "origin" : "twitter_coordinates_section"
                                                                                 }]
                                                                             '''))
-        and:
-            wireMock.verifyThat(getRequestedFor(urlMatching('.*')).withHeader(CORRELATION_ID_HEADER, matching(/^(?!\s*$).+/)))
     }
 
     // http://api.openweathermap.org/data/2.5/weather?q=London
