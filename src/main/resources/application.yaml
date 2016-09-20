@@ -1,0 +1,2 @@
+{graphite.host: 'http://graphite.4finance.net', metrics.path.app: results-storage,
+  stubrunner.stubs.repository.root: 'http://dl.bintray.com/mdavidek1/rango', stubrunner.use-microservice-definitions: true}

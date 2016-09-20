@@ -6,11 +6,6 @@ spring.autoconfigure.exclude: ''
 
 spring:
   application:
-    name: com/ofg/twitter-places-analyzer
+    name: cz/mikealdo/results-storage
 
-spring.cloud.zookeeper.discovery.root: /pl
-spring.cloud.zookeeper:
-  prefix:
-  dependencies:
-    collerator:
-      path:  com/ofg/twitter-places-collerator
+spring.cloud.zookeeper.discovery.root: /cz

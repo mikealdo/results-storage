@@ -1,4 +1,4 @@
-bootmicroservice:
+results-storage:
   build: build/docker
   links:
     - zookeeper:zk
@@ -6,18 +6,10 @@ bootmicroservice:
 
   environment:
     spring.profiles.active: prod
-    APP_ENV: dev
+    APP_ENV: prod
 
   command: --service.resolver.url=zk:2181 \
            --graphite.host=gr
 
   ports:
-    - 8095:8095
-
-zookeeper:
-  image: jplock/zookeeper
-
-graphite:
-  image: kamon/grafana_graphite
-  ports:
-    - 8081:80
+    - 0.0.0.0:8095:8095

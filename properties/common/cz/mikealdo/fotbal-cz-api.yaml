@@ -1,0 +1,21 @@
+metrics.path:
+  country: cz
+  app: fotbal-cz-api
+
+request.payload.logging.maxlength: 2000
+
+server.port: 8095
+
+spring:
+  datasource:
+    username: fotbal-cz-api
+
+  jackson.deserialization.fail-on-unknown-properties: false
+  groovy.template.check-template-location: false
+
+stubrunner:
+  use-microservice-definitions: true
+  stubs:
+    repository.root: "http://dl.bintray.com/mdavidek1/rango"
+    group: cz.mikealdo
+    module: stub-runner-examples

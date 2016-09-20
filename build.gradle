@@ -111,7 +111,6 @@ git.commit.time=${gitCommitTime}
 """
 }
 
-apply from: 'gradle/cli.gradle'
 apply from: 'gradle/test.gradle'
 apply from: 'gradle/misc.gradle'
 apply from: 'gradle/release.gradle'
