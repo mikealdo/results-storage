@@ -1,5 +1,6 @@
 {
     "cz": {
-        "this": "cz/mikealdo/results-storage"
+        "this": "cz/mikealdo/results-storage",
+        "dependencies": {}
     }
 }
