@@ -1,0 +1,39 @@
+{
+  "package": {
+    "repo": "rango",
+    "name": "results-storage",
+    "subject": "mdavidek1",
+    "desc": "Storage for results - stubs and microservice",
+    "website_url": "www.rango.com",
+    "issue_tracker_url": "https://github.com/mikealdo/results-storage/issues",
+    "vcs_url": "https://github.com/mikealdo/results-storage",
+    "github_use_tag_release_notes": true,
+    "github_release_notes_file": "RELEASE.txt",
+    "licenses": [
+      "MIT"
+    ],
+    "labels": ["continous-delivery", "rango"],
+    "public_download_numbers": true,
+    "public_stats": true
+  },
+  "version": {
+    "name": "{version}",
+    "desc": "Results storage for Rango project.",
+    "released": "{date}",
+    "vcs_tag": "{version}",
+    "gpgSign": false
+  },
+  "files": [
+    {
+      "includePattern": "build/libs/(results-storage-{version}\.jar)",
+      "excludePattern": "original",
+      "uploadPattern": "cz/mikealdo/results-storage/results-storage-{version}/$1"
+    },
+    {
+      "includePattern": "build/libs/(results-storage-{version}-stubs\.jar)",
+      "excludePattern": "original",
+      "uploadPattern": "cz/mikealdo/results-storage/results-storage-{version}/$1"
+    }
+  ],
+  "publish": true
+}
