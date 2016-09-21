@@ -20,7 +20,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT
 @RequestMapping('/api')
 @TypeChecked
 @Api(value = "competitionHash", description = "Save json string to redis cache")
-public final class ResultsStorageController {
+public class ResultsStorageController {
 
     private Map<String, String> cache = new HashMap<>();
 

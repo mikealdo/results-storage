@@ -1,6 +1,6 @@
 metrics.path:
   country: cz
-  app: fotbal-cz-api
+  app: results-storage
 
 request.payload.logging.maxlength: 2000
 

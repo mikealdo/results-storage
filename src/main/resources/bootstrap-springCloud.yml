@@ -4,8 +4,17 @@ ribbon.zookeeper.enabled: true
 spring.cloud.zookeeper.dependency.resttemplate.enabled: false
 spring.autoconfigure.exclude: ''
 
+graphite.host: 192.168.99.100
+graphite.port: 8125
+
 spring:
   application:
     name: cz/mikealdo/results-storage
 
 spring.cloud.zookeeper.discovery.root: /cz
+
+spring.cloud.zookeeper:
+  prefix: cz/mikealdo/
+  dependencies:
+    results-storage:
+      path: results-storage

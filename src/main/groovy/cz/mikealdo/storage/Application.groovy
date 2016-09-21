@@ -18,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableAsync
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableCaching
 @EnableAsync
-@EnableAutoConfiguration(exclude=[DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class])
+@EnableAutoConfiguration(exclude = [DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,HibernateJpaAutoConfiguration.class])
 public class Application {
 
     static void main(String[] args) {
