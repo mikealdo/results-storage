@@ -3,10 +3,13 @@ apply plugin: 'com.ofg.uptodate'
 
 task docker(type: Docker) {
     dependsOn 'build'
-    dryRun true
+    dryRun false
     setEnvironment('CONFIG_FOLDER', '/properties')
+    setEnvironment('APP_ENV', 'prod')
+    setEnvironment('spring.profiles.active', 'prod,springCloud')
+    setEnvironment('ENCRYPT_KEY', 'secretEncryptKey')
     addFile("properties", "/properties")
-    addFile("${libsDir}/${project.name}-${buildNrLoc}.jar", "/${project.name}/${project.name}.jar")
+    addFile("${project.libsDir}/${project.name}-${buildNrLoc}.jar", "/${project.name}/${project.name}.jar")
     exposePort(8095)
     entryPoint(['java', '-jar', "/${project.name}/${project.name}.jar"])
 }

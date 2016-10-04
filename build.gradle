@@ -30,25 +30,15 @@ buildscript {
 }
 
 ext {
-    date = getDateInFormat()
+    def localDate = new Date()
+    date = localDate.format('yyyyMMddHHmmss')
+    shortDate = localDate.format('yyyyMMdd')
     buildNrLoc = project.hasProperty('buildNr') ? "${buildNr}" : "CD-" + date
-
 }
 
-def getDateInFormat() {
-    def date = new Date()
-    def formattedDate = date.format('yyyyMMddHHmmss')
-    return formattedDate
-}
-
-def getDateInShortFormat(date) {
-    def formattedDate = date.format('yyyyMMdd')
-    return formattedDate
-}
 
 group = mavenProjectGroupId
 version = project.hasProperty('currentVersion') ? project.getProperty('currentVersion') : buildNrLoc
-date = date
 
 sourceSets.main.java.srcDirs = []
 sourceSets.main.groovy.srcDirs += ["src/main/java"]
@@ -161,7 +151,7 @@ bintray {
         version {
             name = project.version
             desc = 'Results storage'
-            released  = new Date()
+            released  = date
             vcsTag = project.version
         }
     }
@@ -169,7 +159,7 @@ bintray {
 
 task replaceInBintrayDescriptor() {
     replaceToken("\\{version\\}", project.version)
-    replaceToken("\\{date\\}", getDateInShortFormat(date))
+    replaceToken("\\{date\\}", shortDate)
 }
 
 def replaceToken(fromString, toString) {

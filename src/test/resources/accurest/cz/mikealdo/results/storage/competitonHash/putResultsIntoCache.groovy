@@ -4,7 +4,15 @@ import io.codearte.accurest.dsl.Accurest
 
 Accurest.make {
     request {
-        method 'PUT'
+        method 'GET'
+        url '/api/3da83071-b450-4852-b349-201990550e50'
+        headers {
+            header 'Content-Type': 'application/vnd.cz.mikealdo.results-storage.v1+json'
+        }
+        body '''OK'''
+    }
+    request {
+        method 'GET'
         url '/api/3da83071-b450-4852-b349-201990550e50'
         headers {
             header 'Content-Type': 'application/vnd.cz.mikealdo.results-storage.v1+json'
