@@ -19,7 +19,7 @@ before_script:
  - "export JAVA_OPTS=-Xmx512m"
 
 script:
-- ./gradlew clean guiTest build docker --stacktrace -Dstubrunner.skip-local-repo=true --info
+- ./gradlew clean build docker -x test --stacktrace -Dstubrunner.skip-local-repo=true --info
 
 cache:
   directories:
@@ -40,7 +40,7 @@ after_success:
   - ls -l build/docker
   - ls -l build/libs
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-  - export REPO=mikealdo/resutls-storage
+  - export REPO=mikealdo/results-storage
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build build/docker -t $REPO:$COMMIT
   - ls -l build/docker
