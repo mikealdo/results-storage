@@ -32,7 +32,7 @@
     {
       "includePattern": "build/libs/(results-storage-{version}-stubs\.jar)",
       "excludePattern": "original",
-      "uploadPattern": "cz/mikealdo/results-storage/results-storage-{version}/$1"
+      "uploadPattern": "cz/mikealdo/results-storage-stubs/results-storage-{version}/$1"
     }
   ],
   "publish": true
