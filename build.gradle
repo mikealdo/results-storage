@@ -33,7 +33,7 @@ ext {
     def localDate = new Date()
     date = localDate.format('yyyyMMddHHmmss')
     shortDate = localDate.format('yyyyMMdd')
-    buildNrLoc = project.hasProperty('buildNr') ? "${buildNr}" : "CD-" + date
+    buildNrLoc = project.hasProperty('buildNr') ? "${buildNr}" : "" + date
 }
 
 
